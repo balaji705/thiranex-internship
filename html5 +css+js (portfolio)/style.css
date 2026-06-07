@@ -1,0 +1,437 @@
+/* ==========================
+   CSS VARIABLES (THEME)
+========================== */
+
+:root {
+    --primary: #2563eb;
+    --secondary: #1e293b;
+    --accent: #3b82f6;
+
+    --bg: #ffffff;
+    --surface: #f8fafc;
+
+    --text: #111827;
+    --text-light: #6b7280;
+
+    --border: #e5e7eb;
+
+    --shadow:
+        0 4px 12px rgba(0,0,0,.08);
+
+    --radius: 12px;
+
+    --transition: 0.3s ease;
+}
+
+/* Dark Theme */
+
+[data-theme="dark"] {
+    --bg: #0f172a;
+    --surface: #1e293b;
+
+    --text: #f8fafc;
+    --text-light: #cbd5e1;
+
+    --border: #334155;
+
+    --shadow:
+        0 6px 16px rgba(0,0,0,.4);
+}
+
+/* ==========================
+   RESET
+========================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--bg);
+    color: var(--text);
+
+    line-height: 1.7;
+
+    transition:
+        background var(--transition),
+        color var(--transition);
+}
+
+/* ==========================
+   ACCESSIBILITY
+========================== */
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+}
+
+.skip-link:focus {
+    left: 20px;
+    top: 20px;
+
+    background: var(--primary);
+    color: white;
+
+    padding: 12px;
+    z-index: 1000;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
+}
+
+/* ==========================
+   PAGE LAYOUT
+========================== */
+
+body {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-rows:
+        auto
+        1fr
+        auto;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+header {
+    background: var(--surface);
+
+    box-shadow: var(--shadow);
+
+    padding: 1rem;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* ==========================
+   FLEXBOX NAVIGATION
+========================== */
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+
+    color: var(--text);
+
+    font-weight: 600;
+
+    transition: color var(--transition);
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* ==========================
+   MAIN CONTENT
+========================== */
+
+main {
+    width: min(1200px, 92%);
+    margin: auto;
+
+    padding: 2rem 0;
+}
+
+/* ==========================
+   HERO SECTION
+========================== */
+
+.hero {
+    text-align: center;
+
+    padding: 4rem 1rem;
+}
+
+.hero h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+
+    color: var(--text-light);
+}
+
+/* ==========================
+   GRID LAYOUT
+========================== */
+
+.projects-grid,
+.skills-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 1.5rem;
+
+    margin-top: 2rem;
+}
+
+/* ==========================
+   CARDS
+========================== */
+
+.card {
+    background: var(--surface);
+
+    padding: 1.5rem;
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform .3s,
+        box-shadow .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+/* ==========================
+   ABOUT PAGE GRID
+========================== */
+
+.about-layout {
+    display: grid;
+    gap: 2rem;
+}
+
+.about-image {
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ==========================
+   CONTACT FORM
+========================== */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1rem;
+
+    max-width: 700px;
+
+    margin: auto;
+}
+
+.contact-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+textarea {
+    padding: .9rem;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background: var(--bg);
+
+    color: var(--text);
+}
+
+button {
+    background: var(--primary);
+
+    color: white;
+
+    border: none;
+
+    padding: 1rem;
+
+    border-radius: var(--radius);
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+button:hover {
+    transform: scale(1.03);
+}
+
+/* ==========================
+   THEME TOGGLE
+========================== */
+
+.theme-toggle {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 1rem;
+}
+
+.theme-btn {
+    padding: .7rem 1rem;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer {
+    text-align: center;
+
+    padding: 2rem;
+
+    background: var(--surface);
+
+    margin-top: 3rem;
+}
+
+/* ==========================
+   TABLET (768px+)
+========================== */
+
+@media (min-width: 768px) {
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .projects-grid,
+    .skills-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .about-layout {
+        grid-template-columns:
+            1fr 2fr;
+    }
+
+    .contact-form {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 1.5rem;
+    }
+
+    .contact-form textarea,
+    .contact-form button {
+        grid-column: span 2;
+    }
+}
+
+/* ==========================
+   DESKTOP (1024px+)
+========================== */
+
+@media (min-width: 1024px) {
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .skills-grid {
+        grid-template-columns:
+            repeat(4, 1fr);
+    }
+
+    header {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 1rem 4rem;
+    }
+
+    header h1 {
+        margin: 0;
+    }
+}
+
+/* ==========================
+   LARGE SCREENS (1440px+)
+========================== */
+
+@media (min-width: 1440px) {
+
+    main {
+        width: min(1400px, 90%);
+    }
+}
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card,
+.hero,
+section {
+    animation: fadeUp .7s ease;
+}
